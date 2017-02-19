@@ -1,0 +1,16 @@
+{
+  "name": "ntufoodie_ui",
+  "version": "1.0.0",
+  "main": "path/to/main.css",
+  "ignore": [
+    ".jshintrc",
+    "**/*.txt"
+  ],
+  "dependencies": {
+    "bootstrap": "v4.0.0-alpha.6",
+    "font-awesome": "fontawesome#^4.7.0",
+    "roboto-fontface": "^0.7.0",
+    "parallax.js": "^1.4.2",
+  },
+  "devDependencies": {}
+}

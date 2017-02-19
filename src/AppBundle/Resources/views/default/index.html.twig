@@ -1,0 +1,110 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <header class="parallax-window">
+        <img class="parallax-slider" src="{{ asset('bundles/app/img/header-bg.jpg') }}"/>
+        <div class="container search-form search-home">
+            <div class="row">
+                <h1 class="search-heading col-12">Looking for a place to eat around the NTU campus?</h1>
+            </div>
+            <div class="row justify-content-md-center">
+                <form class="col-lg-8" action="search.html" method="GET">
+                    <label class="sr-only" for="inlineFormInputGroup">Search</label>
+                    <div class="input-group">
+                        <input type="text" class="form-control form-control-xl search-input" name="q"
+                               id="inlineFormInputGroup" placeholder="Search for food courts, cuisine, location...">
+                        <span class="input-group-btn">
+                                <button class="btn btn-secondary btn-xl" type="button">
+                                    <span class="fa fa-search"></span>
+                                </button>
+                            </span>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </header>
+    <section id="last-publications">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <h2 class="text-lg-center home-heading">Most Popular Food Courts</h2>
+                    <hr>
+                </div>
+            </div>
+            <div class="card-deck">
+                <article class="card">
+                    <img src="{{ asset('bundles/app/img/food_courts/North_Spine_Food_Court_280x180.png') }}"
+                         alt="The Pulpit Rock">
+                    <div class="card-block">
+                        <h4 class="card-title">North Spine Food Court</h4>
+                        <p class="card-text">This is a wider card with supporting text below as a natural lead-in to
+                            additional content. This content is a little bit longer.</p>
+                    </div>
+                    <div class="card-footer">
+                        <small class="text-muted">Last updated 3 mins ago</small>
+                    </div>
+                </article>
+                <article class="card">
+                    <img src="{{ asset('bundles/app/img/food_courts/Canteen_2_280x180.png') }}" alt="The Pulpit Rock">
+                    <div class="card-block">
+                        <h4 class="card-title">Food Court 2</h4>
+                        <p class="card-text">This is a wider card with supporting text below as a natural lead-in to
+                            additional content. This content is a little bit longer.</p>
+                    </div>
+                    <div class="card-footer">
+                        <small class="text-muted">Last updated 3 mins ago</small>
+                    </div>
+                </article>
+                <article class="card">
+                    <img src="{{ asset('bundles/app/img/food_courts/Pioneer_Food_Court_280x180.png') }}"
+                         alt="The Pulpit Rock">
+                    <div class="card-block">
+                        <h4 class="card-title">Pioneer Food Court</h4>
+                        <p class="card-text">This is a wider card with supporting text below as a natural lead-in to
+                            additional content. This content is a little bit longer.</p>
+                    </div>
+                    <div class="card-footer">
+                        <small class="text-muted">Last updated 3 mins ago</small>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
+    <section id="about">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <h2 class="text-lg-center home-heading">About NTUFoodie</h2>
+                    <hr>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-12">
+                    <p class="text-justify">
+                        The Nanyang Technological University is a 2 km² campus with nine different schools. It has
+                        <strong>13 canteens</strong> where students, staff, and even the public can have their meals.
+                        Due to the wide range of choices, it is often difficult to decide where to eat. Additionally,
+                        since the campus is huge, there may be some areas that people do not know or are not familiar
+                        with. Our easy-to-use web app, NTUFoodie, will compile information on canteens and stalls and
+                        help users filter by food preference. This benefits people who are new to the campus or are
+                        interested interested in trying different stalls.
+                    </p>
+                    <p class="text-justify">
+                        As the student population of NTU grows over time, more and more halls, canteens, and food stalls
+                        open. Currently, there is limited information on the NTU website and on brochures. All of the
+                        online information compiled together is still not comprehensive: one can find select menu
+                        options and lists of canteens and stalls, but no feedback or anything that is regularly updated.
+                        All other essential information that helps students have a good food experience is gained by
+                        personal experience and word of mouth. Furthermore, only select stalls provide food that abides
+                        by certain dietary restrictions. It can be extremely difficult for certain members of the
+                        diverse campus population to eat in a way that meets both their dietary and tastebud needs.
+                    </p>
+                    <p class="text-justify">
+                        To better serve the students, faculty, staff, and visitors at NTU, NTUFoodie gives you the
+                        chance to access canteen and food stall information.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock %}

@@ -1,0 +1,165 @@
+/*
+    Created on : 4 mai 2016, 23:47:06
+    Author     : Yassine Doghri
+*/
+@import "compass";
+
+/* Sticky footer styles
+-------------------------------------------------- */
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+body {
+  /* Margin bottom by footer height */
+  margin-bottom: 60px;
+}
+
+.footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 60px;
+  line-height: 60px;
+  background-color: #f5f5f5;
+}
+
+/* Custom page CSS
+-------------------------------------------------- */
+body {
+  font-family: Roboto;
+}
+
+.parallax-window {
+  background: transparent;
+}
+
+.svg-logo {
+  height: 32px;
+  @include opacity(0.8);
+  @include transition(all 0.4s ease);
+
+  &:hover {
+    @include opacity(1);
+  }
+}
+
+#main-nav {
+  @include transition(all 0.4s ease);
+
+  .navbar-brand {
+    @include transition(all 0.4s ease);
+  }
+  .nav-link {
+    @include transition(all 0.4s ease);
+  }
+}
+
+.navbar-xl {
+  .navbar-brand {
+    padding-top: .925rem;
+    padding-bottom: .925rem;
+  }
+
+  .nav-link {
+    padding-top: .7rem;
+    padding-bottom: .7rem;
+  }
+}
+
+.navbar-md {
+  background-color: #fff;
+  @include box-shadow(rgba(#000, .2) 0 8px 6px -6px);
+}
+
+.home-heading {
+  font-weight: 300;
+}
+
+.search-form {
+  position: relative;
+  padding-top: 5rem;
+  padding-bottom: 5rem;
+  text-align: center;
+  z-index: 10;
+
+  &.search-home {
+    padding-top: 15rem;
+    padding-bottom: 15rem;
+  }
+
+  @media (max-width: 34em) {
+    padding-top: 150px;
+    padding-bottom: 200px;
+  }
+
+  .search-heading {
+    font-size: 34px;
+    font-weight: 300;
+    line-height: 40px;
+    margin-bottom: 25px;
+    color: rgba(#fff, 0.8);
+  }
+
+  .search-input {
+    font-weight: 300;
+    background: rgba(#fff, 0.8);
+    border: 0;
+    padding: .5rem 2rem;
+  }
+
+  .as-container {
+    width: 100%;
+    position: absolute;
+    bottom: -40px;
+    left: 0;
+  }
+}
+
+.input-group {
+  @media (max-width: 34em) {
+    display: block !important;
+  }
+}
+
+.input-group-btn {
+  background: rgba(255, 255, 255, 0.8);
+  border-radius: 0 .3rem .3rem 0 !important;
+
+  @media (max-width: 34em) {
+    background: transparent;
+  }
+}
+
+.btn-xl {
+  background: transparent;
+  padding: 1.25rem 2rem;
+  font-size: 1.25rem;
+  line-height: 1.33333;
+  border: none;
+
+  &:hover {
+    background: transparent;
+    color: #0275d8;
+  }
+
+  @media (max-width: 34em) {
+    background: rgba(255, 255, 255, 0.8);
+    border-radius: .3rem !important;
+    margin-top: 5px;
+    width: 100% !important;
+
+    &:hover {
+      background: rgba(255, 255, 255, 0.8);
+    }
+  }
+}
+
+section {
+  padding: 50px 0;
+}
+
+#about {
+  background-color: #EEEEF0;
+}
