@@ -1,0 +1,65 @@
+AppBundle\Entity\Menuitem:
+    type: entity
+    table: menuitem
+    indexes:
+        FK_menuItem_foodStall:
+            columns:
+                - foodStallId
+        FK_menuItem_dietary:
+            columns:
+                - dietaryId
+    uniqueConstraints:
+        id:
+            columns:
+                - id
+    id:
+        id:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            generator:
+                strategy: IDENTITY
+    fields:
+        name:
+            type: string
+            nullable: false
+            length: 128
+            options:
+                fixed: false
+        price:
+            type: float
+            nullable: true
+            precision: 10
+            scale: 0
+        description:
+            type: string
+            nullable: true
+            length: 255
+            options:
+                fixed: false
+        calories:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+        img:
+            type: string
+            nullable: true
+            length: 128
+            options:
+                fixed: false
+        foodstallid:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            column: foodStallId
+        dietaryid:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            column: dietaryId
+    lifecycleCallbacks: {  }

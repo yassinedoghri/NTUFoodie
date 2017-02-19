@@ -1,0 +1,60 @@
+AppBundle\Entity\Comment:
+    type: entity
+    table: comment
+    indexes:
+        FK_comment_user:
+            columns:
+                - userid
+        FK_comment_foodStall:
+            columns:
+                - foodStallid
+        FK_comment_foodCourt:
+            columns:
+                - foodCourtid
+    uniqueConstraints:
+        id:
+            columns:
+                - id
+    id:
+        id:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            generator:
+                strategy: IDENTITY
+    fields:
+        content:
+            type: blob
+            nullable: false
+            length: 65535
+            options:
+                fixed: false
+        datecreated:
+            type: date
+            nullable: false
+            column: dateCreated
+        userid:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+        foodstallid:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+            column: foodStallid
+        foodcourtid:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+            column: foodCourtid
+        replyid:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+    lifecycleCallbacks: {  }
