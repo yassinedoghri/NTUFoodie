@@ -21,4 +21,8 @@ AppBundle\Entity\Category:
             length: 32
             options:
                 fixed: false
+    oneToMany:
+        foodstalls:
+            targetEntity: FoodstallCategory
+            mappedBy: category
     lifecycleCallbacks: {  }

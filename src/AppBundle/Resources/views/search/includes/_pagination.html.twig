@@ -1,0 +1,28 @@
+<nav class="navigation">
+    <p class="pull-left">Page <strong>{{ current }}</strong> of <strong>{{ pageCount }}</strong></p>
+    {% if pageCount > 1 %}
+        <ul class="pagination justify-content-end">
+            {% if previous is defined %}
+                <li class="page-item">
+                    <a href="{{ path(route, query|merge({(pageParameterName): previous})) }}" class="page-link"><span
+                                class="fa fa-chevron-left"></span></a>
+                </li>
+            {% else %}
+                <li class="page-item disabled">
+                    <a href="#" class="page-link"><span class="fa fa-chevron-left"></span></a>
+                </li>
+            {% endif %}
+
+            {% if next is defined %}
+                <li class="page-item">
+                    <a href="{{ path(route, query|merge({(pageParameterName): next})) }}" class="page-link"><span
+                                class="fa fa-chevron-right"></span></a>
+                </li>
+            {% else %}
+                <li class="disabled">
+                    <a href="#" class="page-link"><span class="fa fa-chevron-right"></span></a>
+                </li>
+            {% endif %}
+        </ul>
+    {% endif %}
+</nav>

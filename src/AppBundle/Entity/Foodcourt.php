@@ -2,51 +2,88 @@
 
 namespace AppBundle\Entity;
 
+use Doctrine\ORM\Mapping as ORM;
+
 /**
  * Foodcourt
+ *
+ * @ORM\Table(name="foodcourt", uniqueConstraints={@ORM\UniqueConstraint(name="id", columns={"id"})})
+ * @ORM\Entity
  */
 class Foodcourt
 {
     /**
      * @var integer
+     *
+     * @ORM\Column(name="id", type="integer", nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
      */
     private $id;
 
     /**
      * @var string
+     *
+     * @ORM\Column(name="name", type="string", length=128, nullable=false)
      */
     private $name;
 
     /**
      * @var string
+     *
+     * @ORM\Column(name="place", type="string", length=255, nullable=true)
      */
     private $place;
 
     /**
      * @var integer
+     *
+     * @ORM\Column(name="lat", type="integer", nullable=true)
      */
     private $lat;
 
     /**
      * @var integer
+     *
+     * @ORM\Column(name="lng", type="integer", nullable=true)
      */
     private $lng;
 
     /**
      * @var string
+     *
+     * @ORM\Column(name="img", type="string", length=255, nullable=true)
      */
     private $img;
 
     /**
      * @var string
+     *
+     * @ORM\Column(name="description", type="string", length=255, nullable=true)
      */
     private $description;
 
     /**
      * @var integer
+     *
+     * @ORM\Column(name="seatingCapacity", type="integer", nullable=true)
      */
     private $seatingcapacity;
 
+    /**
+     * @var \Doctrine\Common\Collections\Collection
+     *
+     * @ORM\OneToMany(targetEntity="AppBundle\Entity\Foodstall", mappedBy="foodcourt")
+     */
+    private $foodstalls;
+
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->foodstalls = new \Doctrine\Common\Collections\ArrayCollection();
+    }
 
     /**
      * Get id
@@ -225,5 +262,39 @@ class Foodcourt
     {
         return $this->seatingcapacity;
     }
-}
 
+
+    /**
+     * Add foodstall
+     *
+     * @param \AppBundle\Entity\Foodstall $foodstall
+     *
+     * @return Foodcourt
+     */
+    public function addFoodstall(\AppBundle\Entity\Foodstall $foodstall)
+    {
+        $this->foodstalls[] = $foodstall;
+
+        return $this;
+    }
+
+    /**
+     * Remove foodstall
+     *
+     * @param \AppBundle\Entity\Foodstall $foodstall
+     */
+    public function removeFoodstall(\AppBundle\Entity\Foodstall $foodstall)
+    {
+        $this->foodstalls->removeElement($foodstall);
+    }
+
+    /**
+     * Get foodstalls
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getFoodstalls()
+    {
+        return $this->foodstalls;
+    }
+}

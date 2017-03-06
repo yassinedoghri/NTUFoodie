@@ -9,18 +9,21 @@ AppBundle\Entity\FoodstallCategory:
             columns:
                 - categoryId
     id:
-        foodstallid:
-            type: integer
-            nullable: false
-            options:
-                unsigned: false
-            id: true
-            column: foodStallId
-        categoryid:
-            type: integer
-            nullable: false
-            options:
-                unsigned: false
-            id: true
-            column: categoryId
+        foodstall:
+            associationKey: true
+        category:
+            associationKey: true
+    manyToOne:
+        foodstall:
+            targetEntity: Foodstall
+            inversedBy: categories
+            joinColumn:
+                name: foodStallId
+                referencedColumnName: id
+        category:
+            targetEntity: Category
+            inversedBy: foodstalls
+            joinColumn:
+                name: categoryId
+                referencedColumnName: id
     lifecycleCallbacks: {  }

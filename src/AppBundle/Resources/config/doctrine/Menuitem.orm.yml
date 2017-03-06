@@ -50,16 +50,17 @@ AppBundle\Entity\Menuitem:
             length: 128
             options:
                 fixed: false
-        foodstallid:
-            type: integer
-            nullable: false
-            options:
-                unsigned: false
-            column: foodStallId
-        dietaryid:
-            type: integer
-            nullable: false
-            options:
-                unsigned: false
-            column: dietaryId
+    manyToOne:
+        foodstall:
+            targetEntity: Foodstall
+            inversedBy: menuitems
+            joinColumn:
+                name: foodstallid
+                referencedColumnName: id
+        dietary:
+            targetEntity: Dietary
+            inversedBy: menuitems
+            joinColumn:
+                name: dietaryid
+                referencedColumnName: id
     lifecycleCallbacks: {  }

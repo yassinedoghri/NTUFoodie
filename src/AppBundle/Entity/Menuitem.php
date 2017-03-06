@@ -2,51 +2,79 @@
 
 namespace AppBundle\Entity;
 
+use Doctrine\ORM\Mapping as ORM;
+
 /**
  * Menuitem
+ *
+ * @ORM\Table(name="menuitem", uniqueConstraints={@ORM\UniqueConstraint(name="id", columns={"id"})}, indexes={@ORM\Index(name="FK_menuItem_foodStall", columns={"foodStallId"}), @ORM\Index(name="FK_menuItem_dietary", columns={"dietaryId"})})
+ * @ORM\Entity
  */
 class Menuitem
 {
     /**
      * @var integer
+     *
+     * @ORM\Column(name="id", type="integer", nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
      */
     private $id;
 
     /**
      * @var string
+     *
+     * @ORM\Column(name="name", type="string", length=128, nullable=false)
      */
     private $name;
 
     /**
      * @var float
+     *
+     * @ORM\Column(name="price", type="float", precision=10, scale=0, nullable=true)
      */
     private $price;
 
     /**
      * @var string
+     *
+     * @ORM\Column(name="description", type="string", length=255, nullable=true)
      */
     private $description;
 
     /**
      * @var integer
+     *
+     * @ORM\Column(name="calories", type="integer", nullable=true)
      */
     private $calories;
 
     /**
      * @var string
+     *
+     * @ORM\Column(name="img", type="string", length=128, nullable=true)
      */
     private $img;
 
     /**
-     * @var integer
+     * @var \AppBundle\Entity\Foodstall
+     *
+     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Foodstall", inversedBy="menuitems", cascade={"persist"})
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="foodstallid", referencedColumnName="id")
+     * })
      */
-    private $foodstallid;
+    private $foodstall;
 
     /**
-     * @var integer
+     * @var \AppBundle\Entity\Dietary
+     *
+     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Dietary", inversedBy="menuitems", cascade={"persist"})
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="dietaryid", referencedColumnName="id")
+     * })
      */
-    private $dietaryid;
-
+    private $dietary;
 
     /**
      * Get id
@@ -178,52 +206,53 @@ class Menuitem
         return $this->img;
     }
 
+
     /**
-     * Set foodstallid
+     * Set foodstall
      *
-     * @param integer $foodstallid
+     * @param \AppBundle\Entity\Foodstall $foodstall
      *
      * @return Menuitem
      */
-    public function setFoodstallid($foodstallid)
+    public function setFoodstall(\AppBundle\Entity\Foodstall $foodstall = null)
     {
-        $this->foodstallid = $foodstallid;
+        $this->foodstall = $foodstall;
 
         return $this;
     }
 
     /**
-     * Get foodstallid
+     * Get foodstall
      *
-     * @return integer
+     * @return \AppBundle\Entity\Foodstall
      */
-    public function getFoodstallid()
+    public function getFoodstall()
     {
-        return $this->foodstallid;
+        return $this->foodstall;
     }
 
+
     /**
-     * Set dietaryid
+     * Set dietary
      *
-     * @param integer $dietaryid
+     * @param \AppBundle\Entity\Dietary $dietary
      *
      * @return Menuitem
      */
-    public function setDietaryid($dietaryid)
+    public function setDietary(\AppBundle\Entity\Dietary $dietary = null)
     {
-        $this->dietaryid = $dietaryid;
+        $this->dietary = $dietary;
 
         return $this;
     }
 
     /**
-     * Get dietaryid
+     * Get dietary
      *
-     * @return integer
+     * @return \AppBundle\Entity\Dietary
      */
-    public function getDietaryid()
+    public function getDietary()
     {
-        return $this->dietaryid;
+        return $this->dietary;
     }
 }
-

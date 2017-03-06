@@ -55,4 +55,8 @@ AppBundle\Entity\Foodcourt:
             options:
                 unsigned: false
             column: seatingCapacity
+    oneToMany:
+        foodstalls:
+            targetEntity: Foodstall
+            mappedBy: foodcourt
     lifecycleCallbacks: {  }

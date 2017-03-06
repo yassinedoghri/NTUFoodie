@@ -2,45 +2,67 @@
 
 namespace AppBundle\Entity;
 
+use Doctrine\ORM\Mapping as ORM;
+
 /**
  * User
+ *
+ * @ORM\Table(name="user", uniqueConstraints={@ORM\UniqueConstraint(name="id", columns={"id"})})
+ * @ORM\Entity
  */
 class User
 {
     /**
      * @var integer
+     *
+     * @ORM\Column(name="id", type="integer", nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
      */
     private $id;
 
     /**
      * @var string
+     *
+     * @ORM\Column(name="username", type="string", length=32, nullable=false)
      */
     private $username;
 
     /**
      * @var string
+     *
+     * @ORM\Column(name="password", type="string", length=64, nullable=false)
      */
     private $password;
 
     /**
      * @var string
+     *
+     * @ORM\Column(name="email", type="string", length=64, nullable=false)
      */
     private $email;
 
     /**
      * @var string
+     *
+     * @ORM\Column(name="firstname", type="string", length=64, nullable=false)
      */
     private $firstname;
 
     /**
      * @var string
+     *
+     * @ORM\Column(name="lastname", type="string", length=64, nullable=false)
      */
     private $lastname;
 
     /**
      * @var \DateTime
+     *
+     * @ORM\Column(name="dateCreated", type="date", nullable=false)
      */
     private $datecreated;
+
 
 
     /**
@@ -197,4 +219,3 @@ class User
         return $this->datecreated;
     }
 }
-

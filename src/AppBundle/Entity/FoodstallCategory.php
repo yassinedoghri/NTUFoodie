@@ -2,68 +2,84 @@
 
 namespace AppBundle\Entity;
 
+use Doctrine\ORM\Mapping as ORM;
+
 /**
  * FoodstallCategory
+ *
+ * @ORM\Table(name="foodstall_category", indexes={@ORM\Index(name="FK_foodStall_foodStall", columns={"foodStallId"}), @ORM\Index(name="FK_foodStall_category", columns={"categoryId"})})
+ * @ORM\Entity
  */
 class FoodstallCategory
 {
     /**
-     * @var integer
-     */
-    private $foodstallid;
-
-    /**
-     * @var integer
-     */
-    private $categoryid;
-
-
-    /**
-     * Set foodstallid
+     * @var \AppBundle\Entity\Foodstall
      *
-     * @param integer $foodstallid
+     * @ORM\Id
+     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Foodstall", inversedBy="categories", cascade={"persist"})
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="foodstallid", referencedColumnName="id")
+     * })
+     */
+    private $foodstall;
+
+    /**
+     * @var \AppBundle\Entity\Category
+     *
+     * @ORM\Id
+     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Category", inversedBy="foodstalls", cascade={"persist"})
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="categoryid", referencedColumnName="id")
+     * })
+     */
+    private $category;
+
+
+    /**
+     * Set foodstall
+     *
+     * @param \AppBundle\Entity\Foodstall $foodstall
      *
      * @return FoodstallCategory
      */
-    public function setFoodstallid($foodstallid)
+    public function setFoodstall(\AppBundle\Entity\Foodstall $foodstall = null)
     {
-        $this->foodstallid = $foodstallid;
+        $this->foodstall = $foodstall;
 
         return $this;
     }
 
     /**
-     * Get foodstallid
+     * Get foodstall
      *
-     * @return integer
+     * @return \AppBundle\Entity\Foodstall
      */
-    public function getFoodstallid()
+    public function getFoodstall()
     {
-        return $this->foodstallid;
+        return $this->foodstall;
     }
 
     /**
-     * Set categoryid
+     * Set category
      *
-     * @param integer $categoryid
+     * @param \AppBundle\Entity\Category $category
      *
      * @return FoodstallCategory
      */
-    public function setCategoryid($categoryid)
+    public function setCategory(\AppBundle\Entity\Category $category = null)
     {
-        $this->categoryid = $categoryid;
+        $this->category = $category;
 
         return $this;
     }
 
     /**
-     * Get categoryid
+     * Get category
      *
-     * @return integer
+     * @return \AppBundle\Entity\Category
      */
-    public function getCategoryid()
+    public function getCategory()
     {
-        return $this->categoryid;
+        return $this->category;
     }
 }
-

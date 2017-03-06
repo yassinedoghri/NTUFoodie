@@ -37,10 +37,18 @@ AppBundle\Entity\Foodstall:
             length: 255
             options:
                 fixed: false
-        foodcourtid:
-            type: integer
-            nullable: false
-            options:
-                unsigned: false
-            column: foodCourtId
+    oneToMany:
+        categories:
+            targetEntity: FoodstallCategory
+            mappedBy: foodstall
+        menuitems:
+            targetEntity: Menuitem
+            mappedBy: foodstall
+    manyToOne:
+        foodcourt:
+            targetEntity: Foodcourt
+            inversedBy: foodstalls
+            joinColumn:
+                name: foodCourtId
+                referencedColumnName: id
     lifecycleCallbacks: {  }

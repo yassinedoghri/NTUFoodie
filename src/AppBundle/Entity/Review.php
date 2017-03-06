@@ -2,45 +2,67 @@
 
 namespace AppBundle\Entity;
 
+use Doctrine\ORM\Mapping as ORM;
+
 /**
  * Review
+ *
+ * @ORM\Table(name="review", uniqueConstraints={@ORM\UniqueConstraint(name="id", columns={"id"})}, indexes={@ORM\Index(name="FK_review_foodCourt", columns={"foodCourtId"}), @ORM\Index(name="FK_review_foodStall", columns={"foodStallId"}), @ORM\Index(name="FK_review_user", columns={"userId"})})
+ * @ORM\Entity
  */
 class Review
 {
     /**
      * @var integer
+     *
+     * @ORM\Column(name="id", type="integer", nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
      */
     private $id;
 
     /**
      * @var integer
+     *
+     * @ORM\Column(name="rating", type="integer", nullable=false)
      */
     private $rating;
 
     /**
      * @var integer
+     *
+     * @ORM\Column(name="content", type="integer", nullable=true)
      */
     private $content;
 
     /**
      * @var \DateTime
+     *
+     * @ORM\Column(name="dateCreated", type="date", nullable=false)
      */
     private $datecreated;
 
     /**
      * @var integer
+     *
+     * @ORM\Column(name="userId", type="integer", nullable=false)
      */
     private $userid;
 
     /**
      * @var integer
+     *
+     * @ORM\Column(name="foodStallId", type="integer", nullable=true)
      */
     private $foodstallid;
 
     /**
      * @var integer
+     *
+     * @ORM\Column(name="foodCourtId", type="integer", nullable=true)
      */
     private $foodcourtid;
+
 
 
     /**
@@ -197,4 +219,3 @@ class Review
         return $this->foodcourtid;
     }
 }
-

@@ -1,0 +1,122 @@
+{% extends 'base.html.twig' %}
+
+{% block stylesheets %}
+    <link rel="stylesheet" href="{{ asset('bundles/app/css/search.css') }}">
+{% endblock %}
+
+
+{% block body %}
+    <header class="parallax-window">
+        <img class="parallax-slider" src="{{ asset('bundles/app/img/header-bg.jpg') }}"/>
+        <div class="container search-form">
+            <div class="row justify-content-md-center">
+                <form class="col-lg-8" action="{{ path('search') }}" method="GET">
+                    <label class="sr-only" for="inlineFormInputGroup">Search</label>
+                    <div class="input-group">
+                        <input type="text" class="form-control form-control-xl search-input" name="q"
+                               value="{{ app.request.get('q') }}" id="inlineFormInputGroup"
+                               placeholder="Search for food courts, cuisine, location...">
+                        <span class="input-group-btn">
+                            <button class="btn btn-secondary btn-xl" type="button">
+                                <span class="fa fa-search"></span>
+                            </button>
+                        </span>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </header>
+    <section class="container">
+        <div class="row">
+            <div class="col-lg-3">
+                <div class="search-box block">
+                    <h4>Filters</h4>
+                    <form action="">
+                        <div class="form-group">
+                            <label for="category" class="sr-only">Category</label>
+                            <select class="form-control" name="category" id="category">
+                                <option value="">Select a category...</option>
+                                {% for c in categories %}
+                                    <option value="{{ c.id }}">{{ c.wording }}</option>
+                                {% endfor %}
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="diatery-need" class="sr-only">Dietary Need</label>
+                            <select class="form-control" name="diatery-need" id="diatery-need">
+                                <option value="">Select a diatery need...</option>
+                                {% for d in dietaries %}
+                                    <option value="{{ d.id }}">{{ d.wording }}</option>
+                                {% endfor %}
+                            </select>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <div class="col-lg-9">
+                <h2>
+                    <span class="label label-pill label-info pull-right">{{ foodcourts.getTotalItemCount }}
+                        <small>Result(s)</small></span>
+                    Food courts
+                </h2>
+                <hr>
+                {% if foodcourts.getTotalItemCount > 0 %}
+                    {% for foodcourt in foodcourts %}
+                        <article class="row foodcourt-elm">
+                            <figure>
+                                <img src="{{ asset('bundles/app/img/food-court/' ~ foodcourt.img) }}"
+                                     alt="{{ foodcourt.img }}">
+                            </figure>
+                            <div class="col">
+                                <div class="ratings pull-right">
+                                    <a href="#">
+                                        <span class="fa fa-star"></span>
+                                        <span class="fa fa-star"></span>
+                                        <span class="fa fa-star"></span>
+                                        <span class="fa fa-star"></span>
+                                        <span class="fa fa-star-half-empty"></span>
+                                        <span>6</span>
+                                    </a>
+                                </div>
+                                <h3><a href="">{{ foodcourt.name }}</a>
+                                    <small>$$$</small>
+                                </h3>
+                                <ul class="nav justify-content-start list-unstyled">
+                                    {% set categories = [] %}
+                                    {% for foodstall in foodcourt.foodstalls %}
+                                        {% for foodstall in foodcourt.foodstalls %}
+                                            {% for fsc in foodstall.categories %}
+                                                {% if fsc.category.wording not in categories %}
+                                                    {% set categories = categories|merge([fsc.category.wording]) %}
+                                                {% endif %}
+                                            {% endfor %}
+                                        {% endfor %}
+                                    {% endfor %}
+                                    {% for category in categories %}
+                                        <li class="nav-link"><a href="#">{{ category }}</a></li>
+                                    {% endfor %}
+                                </ul>
+                                <p>
+                                    {{ foodcourt.description }}<br>
+                                    <small class="text-muted">Seating Capacity:
+                                        <strong>{{ foodcourt.seatingcapacity }}</strong></small>
+                                </p>
+
+                                <footer>
+                                    <p class="pull-right"><a href="#"><span class="fa fa-comment-o"></span> 12</a></p>
+                                    <p><span class="fa fa-map-marker"></span> {{ foodcourt.place }}</p>
+                                </footer>
+                            </div>
+                        </article>
+                    {% endfor %}
+                {% else %}
+                    <br/>
+                    <div class="alert alert-warning" role="alert">
+                        <strong>Oops!</strong> There's nothing... Keep searching!
+                    </div>
+                {% endif %}
+                {{ knp_pagination_render(foodcourts, 'AppBundle:Search:includes/_pagination.html.twig') }}
+            </div>
+        </div>
+    </section>
+{% endblock %}

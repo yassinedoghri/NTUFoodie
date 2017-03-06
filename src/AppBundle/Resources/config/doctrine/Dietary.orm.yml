@@ -14,7 +14,17 @@ AppBundle\Entity\Dietary:
         wording:
             type: string
             nullable: false
-            length: 255
+            length: 64
             options:
                 fixed: false
+        img:
+            type: string
+            nullable: false
+            length: 128
+            options:
+                fixed: false
+    oneToMany:
+         menuitems:
+             targetEntity: Menuitem
+             mappedBy: dietary
     lifecycleCallbacks: {  }
