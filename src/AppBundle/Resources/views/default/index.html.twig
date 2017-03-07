@@ -8,7 +8,7 @@
                 <h1 class="search-heading col-12">Looking for a place to eat around the NTU campus?</h1>
             </div>
             <div class="row justify-content-md-center">
-                <form class="col-lg-8" action="search.html" method="GET">
+                <form class="col-lg-8" action="{{ path('search') }}" method="GET">
                     <label class="sr-only" for="inlineFormInputGroup">Search</label>
                     <div class="input-group">
                         <input type="text" class="form-control form-control-xl search-input" name="q"
@@ -33,8 +33,8 @@
             </div>
             <div class="card-deck">
                 <article class="card">
-                    <img src="{{ asset('bundles/app/img/food_courts/North_Spine_Food_Court_280x180.png') }}"
-                         alt="The Pulpit Rock">
+                    <img src="{{ asset('bundles/app/img/food-court/north-spine-food-court.png') }}"
+                         alt="North Spine Food Court">
                     <div class="card-block">
                         <h4 class="card-title">North Spine Food Court</h4>
                         <p class="card-text">This is a wider card with supporting text below as a natural lead-in to
@@ -45,7 +45,7 @@
                     </div>
                 </article>
                 <article class="card">
-                    <img src="{{ asset('bundles/app/img/food_courts/Canteen_2_280x180.png') }}" alt="The Pulpit Rock">
+                    <img src="{{ asset('bundles/app/img/food-court/food-court-2.png') }}" alt="Food court 2">
                     <div class="card-block">
                         <h4 class="card-title">Food Court 2</h4>
                         <p class="card-text">This is a wider card with supporting text below as a natural lead-in to
@@ -56,8 +56,8 @@
                     </div>
                 </article>
                 <article class="card">
-                    <img src="{{ asset('bundles/app/img/food_courts/Pioneer_Food_Court_280x180.png') }}"
-                         alt="The Pulpit Rock">
+                    <img src="{{ asset('bundles/app/img/food-court/pioneer-food-court.png') }}"
+                         alt="Pioneer Food Court">
                     <div class="card-block">
                         <h4 class="card-title">Pioneer Food Court</h4>
                         <p class="card-text">This is a wider card with supporting text below as a natural lead-in to
@@ -79,7 +79,10 @@
                 </div>
             </div>
             <div class="row">
-                <div class="col-lg-12">
+                <div class="col">
+                    <img src="{{ asset('bundles/app/img/ntufoodie-logo.svg') }}" alt="Logo NTUFoodie"/>
+                </div>
+                <div class="col-lg-9">
                     <p class="text-justify">
                         The Nanyang Technological University is a 2 km² campus with nine different schools. It has
                         <strong>13 canteens</strong> where students, staff, and even the public can have their meals.

@@ -68,3 +68,47 @@ swiftmailer:
     username:  "%mailer_user%"
     password:  "%mailer_password%"
     spool:     { type: memory }
+
+# FOSElastica Configuration
+fos_elastica:
+    clients:
+        default: { host: localhost, port: 9200 }
+    indexes:
+        app:
+            types:
+                foodcourt:
+                    mappings:
+                        name: ~
+                        description: ~
+                        place: ~
+                    persistence:
+                        driver: orm
+                        model: AppBundle\Entity\Foodcourt
+                        repository: AppBundle\SearchRepository\FoodcourtRepository
+                        provider: ~
+                        listener:
+                            immediate: ~
+                        finder: ~
+                foodstall:
+                    mappings:
+                        name: ~
+                        description: ~
+                    persistence:
+                        driver: orm
+                        model: AppBundle\Entity\Foodstall
+                        repository: AppBundle\SearchRepository\FoodstallRepository
+                        provider: ~
+                        listener:
+                            immediate: ~
+                        finder: ~
+
+knp_paginator:
+    page_range: 10
+    default_options:
+        page_name: page
+        sort_field_name: sort
+        sort_direction_name: direction
+        distinct: true
+    template:
+        pagination: KnpPaginatorBundle:Pagination:sliding.html.twig
+        sortable: KnpPaginatorBundle:Pagination:sortable_link.html.twig

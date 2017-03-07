@@ -1,0 +1,29 @@
+AppBundle\Entity\FoodstallCategory:
+    type: entity
+    table: foodstall_category
+    indexes:
+        FK_foodStall_foodStall:
+            columns:
+                - foodStallId
+        FK_foodStall_category:
+            columns:
+                - categoryId
+    id:
+        foodstall:
+            associationKey: true
+        category:
+            associationKey: true
+    manyToOne:
+        foodstall:
+            targetEntity: Foodstall
+            inversedBy: categories
+            joinColumn:
+                name: foodStallId
+                referencedColumnName: id
+        category:
+            targetEntity: Category
+            inversedBy: foodstalls
+            joinColumn:
+                name: categoryId
+                referencedColumnName: id
+    lifecycleCallbacks: {  }
