@@ -1,0 +1,203 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    {{ dump(foodcourt) }}
+    <section class="container">
+        <div class="row">
+            <div class="col-md-9">
+                <div class="thumbnail">
+                    <img class="img-responsive" src="http://placehold.it/800x300" alt="">
+                    <div class="caption-full">
+                        <h4><a href="#">North Spine</a>
+                        </h4>
+                        <p>See more snippets like these online store reviews at <a target="_blank"
+                                                                                   href="http://bootsnipp.com">Bootsnipp
+                                - http://bootsnipp.com</a>.</p>
+                        <p>Want to make these reviews work? Check out
+                            <strong><a href="http://maxoffsky.com/code-blog/laravel-shop-tutorial-1-building-a-review-system/">this
+                                    building a review system tutorial</a>
+                            </strong>over at maxoffsky.com!</p>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut
+                            labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
+                            laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in
+                            voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
+                            cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum</p>
+                    </div>
+                    <div class="ratings">
+                        <p class="pull-right">3 reviews</p>
+                        <p>
+                            <span class="glyphicon glyphicon-star"></span>
+                            <span class="glyphicon glyphicon-star"></span>
+                            <span class="glyphicon glyphicon-star"></span>
+                            <span class="glyphicon glyphicon-star"></span>
+                            <span class="glyphicon glyphicon-star-empty"></span> 4.0 stars
+                        </p>
+                    </div>
+                </div>
+
+                <div class="well">
+
+                    <div class="text-right">
+                        <a class="btn btn-success">Leave a Review</a>
+                    </div>
+
+                    <hr>
+
+                    <div class="row">
+                        <div class="col-md-12">
+                            <span class="glyphicon glyphicon-star"></span>
+                            <span class="glyphicon glyphicon-star"></span>
+                            <span class="glyphicon glyphicon-star"></span>
+                            <span class="glyphicon glyphicon-star"></span>
+                            <span class="glyphicon glyphicon-star-empty"></span> Anonymous
+                            <span class="pull-right">10 days ago</span>
+                            <p>This product was great in terms of quality. I would definitely buy another!</p>
+                        </div>
+                    </div>
+
+                    <hr>
+
+                    <div class="row">
+                        <div class="col-md-12">
+                            <span class="glyphicon glyphicon-star"></span>
+                            <span class="glyphicon glyphicon-star"></span>
+                            <span class="glyphicon glyphicon-star"></span>
+                            <span class="glyphicon glyphicon-star"></span>
+                            <span class="glyphicon glyphicon-star-empty"></span> Anonymous
+                            <span class="pull-right">12 days ago</span>
+                            <p>I've alredy ordered another one!</p>
+                        </div>
+                    </div>
+
+                    <hr>
+
+                    <div class="row">
+                        <div class="col-md-12">
+                            <span class="glyphicon glyphicon-star"></span>
+                            <span class="glyphicon glyphicon-star"></span>
+                            <span class="glyphicon glyphicon-star"></span>
+                            <span class="glyphicon glyphicon-star"></span>
+                            <span class="glyphicon glyphicon-star-empty"></span> Anonymous
+                            <span class="pull-right">15 days ago</span>
+                            <p>I've seen some better than this, but not at this price. I definitely recommend this
+                                item.</p>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="col-md-3">
+                <!-- Content Row -->
+                <div>
+                    <div>
+                        <h3>Dietary Needs</h3>
+                        <ul class="list-unstyled list-inline list-social-icons">
+                            <li>
+                                <img class="images" src="images/halal_logo.png"/>
+                            </li>
+                            <li>
+                                <img class="images" src="images/veg_logo.png"/>
+                            </li>
+                            <li>
+                                <img class="images" src="images/vegan_logo.png"/>
+                            </li>
+                        </ul>
+                    </div>
+                    <div>
+                        <ul class="nav list-unstyled justify-content-start list-social-icons">
+                            <li>
+                                <h3>Share it?</h3>
+                            </li>
+                            <li>
+                                <a href="#"><i class="fa fa-facebook-square fa-2x"></i></a>
+                            </li>
+                            <li>
+                                <a href="#"><i class="fa fa-linkedin-square fa-2x"></i></a>
+                            </li>
+                            <li>
+                                <a href="#"><i class="fa fa-twitter-square fa-2x"></i></a>
+                            </li>
+                            <li>
+                                <a href="#"><i class="fa fa-google-plus-square fa-2x"></i></a>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <!-- Map Column -->
+                    <div>
+                        <h3>Where is it?</h3>
+                        <!-- Embedded Google Map -->
+                        <iframe width="100%" height="200px" frameborder="0" scrolling="no" marginheight="0"
+                                marginwidth="0"
+                                src="http://maps.google.com/maps?hl=en&amp;ie=UTF8&amp;ll=37.0625,-95.677068&amp;spn=56.506174,79.013672&amp;t=m&amp;z=4&amp;output=embed"></iframe>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <!-- Blog Comments -->
+
+        <!-- Comments Form -->
+        <div class="well col-md-9">
+            <h4>Leave a Comment:</h4>
+            <form role="form">
+                <div class="form-group">
+                    <textarea class="form-control" rows="3"></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </form>
+        </div>
+
+        <hr>
+
+        <!-- Posted Comments -->
+
+        <!-- Comment -->
+        <div class="media col-md-9">
+            <a class="pull-left" href="#">
+                <img class="media-object" src="http://placehold.it/64x64" alt="">
+            </a>
+            <div class="media-body">
+                <h4 class="media-heading">Start Bootstrap
+                    <small>August 25, 2014 at 9:30 PM</small>
+                </h4>
+                Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo. Cras
+                purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate
+                fringilla. Donec lacinia congue felis in faucibus.
+            </div>
+        </div>
+
+        <!-- Comment -->
+        <div class="media col-md-9">
+            <a class="pull-left" href="#">
+                <img class="media-object" src="http://placehold.it/64x64" alt="">
+            </a>
+            <div class="media-body">
+                <h4 class="media-heading">Start Bootstrap
+                    <small>August 25, 2014 at 9:30 PM</small>
+                </h4>
+                Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo. Cras
+                purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate
+                fringilla. Donec lacinia congue felis in faucibus.
+                <!-- Nested Comment -->
+                <div class="media">
+                    <a class="pull-left" href="#">
+                        <img class="media-object" src="http://placehold.it/64x64" alt="">
+                    </a>
+                    <div class="media-body">
+                        <h4 class="media-heading">Nested Start Bootstrap
+                            <small>August 25, 2014 at 9:30 PM</small>
+                        </h4>
+                        Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin
+                        commodo. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum
+                        nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
+                    </div>
+                </div>
+                <!-- End Nested Comment -->
+            </div>
+        </div>
+    </section>
+{% endblock %}
