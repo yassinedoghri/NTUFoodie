@@ -1,39 +1,36 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    {{ dump(foodcourt) }}
+    <header class="parallax-window">
+        <img class="parallax-slider" src="{{ asset('bundles/app/img/header-bg.jpg') }}"/>
+        <div class="container search-form">
+            <div class="row justify-content-md-center">
+
+            </div>
+        </div>
+    </header>
     <section class="container">
         <div class="row">
             <div class="col-md-9">
-                <div class="thumbnail">
-                    <img class="img-responsive" src="http://placehold.it/800x300" alt="">
-                    <div class="caption-full">
-                        <h4><a href="#">North Spine</a>
-                        </h4>
-                        <p>See more snippets like these online store reviews at <a target="_blank"
-                                                                                   href="http://bootsnipp.com">Bootsnipp
-                                - http://bootsnipp.com</a>.</p>
-                        <p>Want to make these reviews work? Check out
-                            <strong><a href="http://maxoffsky.com/code-blog/laravel-shop-tutorial-1-building-a-review-system/">this
-                                    building a review system tutorial</a>
-                            </strong>over at maxoffsky.com!</p>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut
-                            labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
-                            laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in
-                            voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
-                            cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum</p>
+                <div class="row">
+                    <img class="img-responsive col-3" src="{{ asset('bundles/app/img/food-court/' ~ foodcourt.img) }}" alt="">
+                    <div class="caption-full col-md-9">
+                        <h4>{{ foodcourt.name }}</h4>
+                        <p>{{ foodcourt.description }}</p>
+                        <div class="ratings">
+                            <p class="pull-right">3 reviews</p>
+                            <p>
+                                <span class="fa fa-star"></span>
+                                <span class="fa fa-star"></span>
+                                <span class="fa fa-star"></span>
+                                <span class="fa fa-star"></span>
+                                <span class="fa fa-star-half-empty"></span> 4.0 stars
+                            </p>
+                        </div>
                     </div>
-                    <div class="ratings">
-                        <p class="pull-right">3 reviews</p>
-                        <p>
-                            <span class="glyphicon glyphicon-star"></span>
-                            <span class="glyphicon glyphicon-star"></span>
-                            <span class="glyphicon glyphicon-star"></span>
-                            <span class="glyphicon glyphicon-star"></span>
-                            <span class="glyphicon glyphicon-star-empty"></span> 4.0 stars
-                        </p>
-                    </div>
+
                 </div>
+
 
                 <div class="well">
 
@@ -94,23 +91,21 @@
                 <div>
                     <div>
                         <h3>Dietary Needs</h3>
-                        <ul class="list-unstyled list-inline list-social-icons">
+                        <ul class="nav list-unstyled list-inline list-social-icons">
                             <li>
-                                <img class="images" src="images/halal_logo.png"/>
+                                <img class="images" src="{{ asset('bundles/app/img/dietary/halal.png') }}"/>
                             </li>
                             <li>
-                                <img class="images" src="images/veg_logo.png"/>
+                                <img class="images" src="{{ asset('bundles/app/img/dietary/vegetarian.png') }}"/>
                             </li>
                             <li>
-                                <img class="images" src="images/vegan_logo.png"/>
+                                <img class="images" src="{{ asset('bundles/app/img/dietary/vegan.png') }}"/>
                             </li>
                         </ul>
                     </div>
                     <div>
+                        <h3>Share it?</h3>
                         <ul class="nav list-unstyled justify-content-start list-social-icons">
-                            <li>
-                                <h3>Share it?</h3>
-                            </li>
                             <li>
                                 <a href="#"><i class="fa fa-facebook-square fa-2x"></i></a>
                             </li>
@@ -130,15 +125,15 @@
                     <div>
                         <h3>Where is it?</h3>
                         <!-- Embedded Google Map -->
-                        <iframe width="100%" height="200px" frameborder="0" scrolling="no" marginheight="0"
-                                marginwidth="0"
-                                src="http://maps.google.com/maps?hl=en&amp;ie=UTF8&amp;ll=37.0625,-95.677068&amp;spn=56.506174,79.013672&amp;t=m&amp;z=4&amp;output=embed"></iframe>
+                        <div style="width: 100%;"><iframe width="100%" height="200" src="http://www.mapi.ie/create-google-map/map.php?width=100%&amp;height=200&amp;hl=en&amp;coord=1.3483645,103.68548199999998&amp;q=NTU+(Food%20court%202)&amp;ie=UTF8&amp;t=&amp;z=17&amp;iwloc=A&amp;output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"><a href="http://www.mapsdirections.info/fr/mesurer-distance-surface-google-maps.html">distance à vol d'oiseau google</a> en <a href="http://www.mapsdirections.info/fr/">www.mapsdirections.info/fr/</a></iframe></div><br />
                     </div>
                 </div>
             </div>
 
         </div>
         <!-- Blog Comments -->
+
+        <hr>
 
         <!-- Comments Form -->
         <div class="well col-md-9">
@@ -161,7 +156,7 @@
                 <img class="media-object" src="http://placehold.it/64x64" alt="">
             </a>
             <div class="media-body">
-                <h4 class="media-heading">Start Bootstrap
+                <h4 class="media-heading">Harry Potter
                     <small>August 25, 2014 at 9:30 PM</small>
                 </h4>
                 Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo. Cras
@@ -176,7 +171,7 @@
                 <img class="media-object" src="http://placehold.it/64x64" alt="">
             </a>
             <div class="media-body">
-                <h4 class="media-heading">Start Bootstrap
+                <h4 class="media-heading">Donald Trump
                     <small>August 25, 2014 at 9:30 PM</small>
                 </h4>
                 Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo. Cras
@@ -188,7 +183,7 @@
                         <img class="media-object" src="http://placehold.it/64x64" alt="">
                     </a>
                     <div class="media-body">
-                        <h4 class="media-heading">Nested Start Bootstrap
+                        <h4 class="media-heading">Barack Obama
                             <small>August 25, 2014 at 9:30 PM</small>
                         </h4>
                         Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin
