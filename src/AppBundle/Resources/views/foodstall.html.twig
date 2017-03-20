@@ -12,6 +12,26 @@
     <section class="container">
         <div class="row">
             <div class="col-md-9">
+				<div class="row">
+                    <img class="img-responsive col-3" src="{{ asset('bundles/app/img/food-court/' ~ foodstall.img) }}" alt="">
+                    <div class="caption-full col-md-9">
+                        <h2>{{ foodstall.name }}</h2>
+                        <p>{{ foodstall.description }}</p>
+                        <div class="ratings">
+                            <p class="pull-right">3 reviews</p>
+                            <p>
+                                <span class="fa fa-star"></span>
+                                <span class="fa fa-star"></span>
+                                <span class="fa fa-star"></span>
+                                <span class="fa fa-star"></span>
+                                <span class="fa fa-star-half-empty"></span> 4.5 stars
+                            </p>
+                        </div>
+                    </div>
+                </div>
+				<br>
+				<br>
+				<h4>Food menu in {{ foodstall.name }}</h4>
 				{% for menu in foodstallmenu %}
                 <div class="row">
 					<img class="img-responsive col-3" src="{{ asset('bundles/app/img/menu-item/' ~ menu.img) }}" alt="">

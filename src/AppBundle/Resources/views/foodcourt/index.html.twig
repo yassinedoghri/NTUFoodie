@@ -15,7 +15,7 @@
                 <div class="row">
                     <img class="img-responsive col-3" src="{{ asset('bundles/app/img/food-court/' ~ foodcourt.img) }}" alt="">
                     <div class="caption-full col-md-9">
-                        <h4>{{ foodcourt.name }}</h4>
+                        <h2>{{ foodcourt.name }}</h2>
                         <p>{{ foodcourt.description }}</p>
                         <div class="ratings">
                             <p class="pull-right">3 reviews</p>
@@ -24,14 +24,25 @@
                                 <span class="fa fa-star"></span>
                                 <span class="fa fa-star"></span>
                                 <span class="fa fa-star"></span>
-                                <span class="fa fa-star-half-empty"></span> 4.0 stars
+                                <span class="fa fa-star-half-empty"></span> 4.5 stars
                             </p>
                         </div>
                     </div>
-
                 </div>
-
-
+				<br>
+				<br>
+				<h4>Food Stalls in {{ foodcourt.name }}</h4>
+				<div class="row">
+				{% for fs in foodstall %}
+				<img class="img-responsive col-3" src="{{ asset('bundles/app/img/food-stall/' ~ fs.img) }}" alt="">
+					<div class="caption-full col-md-9">
+						<h4><a href="{{ path('foodstall', {'id': fs.id}) }}">{{ fs.name }}</a></h4>
+						<p>{{ fs.description }}</p>
+					</div>
+				{% endfor %}
+				<br>
+				</div>
+				
                 <div class="well">
 
                     <div class="text-right">

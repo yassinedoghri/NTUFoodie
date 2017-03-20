@@ -75,7 +75,7 @@
                                         <span class="fa fa-star"></span>
                                         <span class="fa fa-star"></span>
                                         <span class="fa fa-star-half-empty"></span>
-                                        <span>6</span>
+                                        <span>4.5</span>
                                     </a>
                                 </div>
                                 <h3><a href="{{ path('foodcourt', {'id': foodcourt.id}) }}">{{ foodcourt.name }}</a>
@@ -93,7 +93,7 @@
                                         {% endfor %}
                                     {% endfor %}
                                     {% for category in categories %}
-                                        <li class="nav-link"><a href="#">{{ category }}</a></li>
+                                        <li class="nav-link"><a href="{{ path('foodcourt', {'id': foodcourt.id}) }}">{{ category }}</a></li>
                                     {% endfor %}
                                 </ul>
                                 <p>

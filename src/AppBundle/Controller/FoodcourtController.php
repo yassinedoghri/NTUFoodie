@@ -17,8 +17,10 @@ class FoodcourtController extends Controller
     public function viewAction(Request $request, $id)
     {
         $foodcourt = $this->getDoctrine()->getRepository('AppBundle:Foodcourt')->findOneBy(array('id' => $id));
+		$foodstall = $this->getDoctrine()->getRepository('AppBundle:Foodstall')->findBy(array('foodcourt' => $id));
         return array(
             'foodcourt' => $foodcourt,
+			'foodstall'=> $foodstall,
         );
     }
 }
